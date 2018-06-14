@@ -156,7 +156,7 @@ class UsesWindowsUtilities(Signature):
         for cmdline in self.get_command_lines():
             for utility in utilities:
                 if utility in cmdline.lower():
-                    self.mark_ioc("cmdline", cmdline)
+                    self.mark_ioc("utility: cmdline", utility + ": " + cmdline)
 
         return self.has_marks()
 
@@ -172,7 +172,7 @@ class SuspiciousCommandTools(Signature):
         for cmdline in self.get_command_lines():
             for utility in risk_utilities:
                 if utility in cmdline.lower():
-                    self.mark_ioc("cmdline", cmdline)
+                    self.mark_ioc("utility: cmdline", utility + ": " + cmdline)
 
         return self.has_marks()
 
@@ -189,7 +189,7 @@ class SysInternalsToolsUsage(Signature):
         for cmdline in self.get_command_lines():
             for utility in sysinternals:
                 if utility in cmdline.lower():
-                    self.mark_ioc("cmdline", cmdline)
+                    self.mark_ioc("utility: cmdline", utility + ": " + cmdline)
 
         return self.has_marks()
 
